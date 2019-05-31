@@ -1,0 +1,15 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachines_TestRG5WinDC_name": {
+            "value": null
+        },
+        "disks_TestRG5WinDC_OsDisk_1_e901310fb2c643609a8ba2765fe1cb31_externalid": {
+            "value": null
+        },
+        "networkInterfaces_testrg5windc22_externalid": {
+            "value": null
+        }
+    }
+}

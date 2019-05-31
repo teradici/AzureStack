@@ -1,0 +1,1537 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "connections_TestRG4VNGWtoTestRG5VNGW_location": {
+            "defaultValue": null,
+            "type": "SecureString"
+        },
+        "connections_TestRG4VNGWtoTestRG5VNGW_location_1": {
+            "defaultValue": null,
+            "type": "SecureString"
+        },
+        "virtualNetworks_TestRG4VNet_name": {
+            "defaultValue": "TestRG4VNet",
+            "type": "String"
+        },
+        "storageAccounts_testrg4diag511_name": {
+            "defaultValue": "testrg4diag511",
+            "type": "String"
+        },
+        "virtualMachines_TestRG4PCOIPWAG_name": {
+            "defaultValue": "TestRG4PCOIPWAG",
+            "type": "String"
+        },
+        "networkInterfaces_testcentos870_name": {
+            "defaultValue": "testcentos870",
+            "type": "String"
+        },
+        "publicIPAddresses_TestCEntos_ip_name": {
+            "defaultValue": "TestCEntos-ip",
+            "type": "String"
+        },
+        "publicIPAddresses_TestRG4VNGWIP_name": {
+            "defaultValue": "TestRG4VNGWIP",
+            "type": "String"
+        },
+        "virtualMachines_TestRG4UbuntuCAC_name": {
+            "defaultValue": "TestRG4UbuntuCAC",
+            "type": "String"
+        },
+        "localNetworkGateways_TestRG5LNGW_name": {
+            "defaultValue": "TestRG5LNGW",
+            "type": "String"
+        },
+        "networkSecurityGroups_TestRG4NSG_name": {
+            "defaultValue": "TestRG4NSG",
+            "type": "String"
+        },
+        "virtualNetworkGateways_TestRG4VNGW_name": {
+            "defaultValue": "TestRG4VNGW",
+            "type": "String"
+        },
+        "connections_TestRG4VNGWtoTestRG5VNGW_name": {
+            "defaultValue": "TestRG4VNGWtoTestRG5VNGW",
+            "type": "String"
+        },
+        "networkInterfaces_testrg4admin_rw970_name": {
+            "defaultValue": "testrg4admin-rw970",
+            "type": "String"
+        },
+        "networkInterfaces_testrg4pcoipwag858_name": {
+            "defaultValue": "testrg4pcoipwag858",
+            "type": "String"
+        },
+        "publicIPAddresses_TestRG4ADMIN_RW_ip_name": {
+            "defaultValue": "TestRG4ADMIN-RW-ip",
+            "type": "String"
+        },
+        "publicIPAddresses_TestRG4PCOIPWAG_ip_name": {
+            "defaultValue": "TestRG4PCOIPWAG-ip",
+            "type": "String"
+        },
+        "networkInterfaces_testrg4ubuntucac307_name": {
+            "defaultValue": "testrg4ubuntucac307",
+            "type": "String"
+        },
+        "publicIPAddresses_TestRG4UbuntuCAC_ip_name": {
+            "defaultValue": "TestRG4UbuntuCAC-ip",
+            "type": "String"
+        },
+        "networkInterfaces_testubuntutestrg4142_name": {
+            "defaultValue": "testubuntutestrg4142",
+            "type": "String"
+        },
+        "publicIPAddresses_TestUbuntutestrg4_ip_name": {
+            "defaultValue": "TestUbuntutestrg4-ip",
+            "type": "String"
+        },
+        "networkInterfaces_testrg4centoslicense154_name": {
+            "defaultValue": "testrg4centoslicense154",
+            "type": "String"
+        },
+        "networkInterfaces_testrg4centosoffline139_name": {
+            "defaultValue": "testrg4centosoffline139",
+            "type": "String"
+        },
+        "virtualMachines_TestRG4CentOSLicenseServer_name": {
+            "defaultValue": "TestRG4CentOSLicenseServer",
+            "type": "String"
+        },
+        "publicIPAddresses_TestRG4CentOSLicenseServer_ip_name": {
+            "defaultValue": "TestRG4CentOSLicenseServer-ip",
+            "type": "String"
+        },
+        "schedules_shutdown_computevm_testrg4ubuntucac_name": {
+            "defaultValue": "shutdown-computevm-testrg4ubuntucac",
+            "type": "String"
+        },
+        "virtualMachines_TestRG4CentOSofflinelicenseseerver_name": {
+            "defaultValue": "TestRG4CentOSofflinelicenseseerver",
+            "type": "String"
+        },
+        "publicIPAddresses_TestRG4CentOSofflinelicenseseerver_ip_name": {
+            "defaultValue": "TestRG4CentOSofflinelicenseseerver-ip",
+            "type": "String"
+        },
+        "disks_TestCEntos_OsDisk_1_9bee551d279a404eadccd49d383e4974_name": {
+            "defaultValue": "TestCEntos_OsDisk_1_9bee551d279a404eadccd49d383e4974",
+            "type": "String"
+        },
+        "disks_TestUbuntutestrg4_disk1_5ede8e9db6644b9d8927c1767d7f3824_name": {
+            "defaultValue": "TestUbuntutestrg4_disk1_5ede8e9db6644b9d8927c1767d7f3824",
+            "type": "String"
+        },
+        "disks_TestRG4ADMIN_RW_OsDisk_1_a29f8ed7ac384c2a805df8ecf322d7dd_name": {
+            "defaultValue": "TestRG4ADMIN-RW_OsDisk_1_a29f8ed7ac384c2a805df8ecf322d7dd",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Compute/disks",
+            "apiVersion": "2018-06-01",
+            "name": "[parameters('disks_TestCEntos_OsDisk_1_9bee551d279a404eadccd49d383e4974_name')]",
+            "location": "westeurope",
+            "sku": {
+                "name": "Premium_LRS",
+                "tier": "Premium"
+            },
+            "properties": {
+                "osType": "Linux",
+                "creationData": {
+                    "createOption": "FromImage",
+                    "imageReference": {
+                        "id": "/Subscriptions/523a0eda-0b3e-41a2-bf22-4a095d972aae/Providers/Microsoft.Compute/Locations/westeurope/Publishers/OpenLogic/ArtifactTypes/VMImage/Offers/CentOS/Skus/7.5/Versions/7.5.20180815"
+                    }
+                },
+                "diskSizeGB": 30,
+                "diskIOPSReadWrite": 120,
+                "diskMBpsReadWrite": 25
+            }
+        },
+        {
+            "type": "Microsoft.Compute/disks",
+            "apiVersion": "2018-06-01",
+            "name": "[parameters('disks_TestRG4ADMIN_RW_OsDisk_1_a29f8ed7ac384c2a805df8ecf322d7dd_name')]",
+            "location": "westeurope",
+            "sku": {
+                "name": "Premium_LRS",
+                "tier": "Premium"
+            },
+            "properties": {
+                "osType": "Windows",
+                "creationData": {
+                    "createOption": "FromImage",
+                    "imageReference": {
+                        "id": "/Subscriptions/523a0eda-0b3e-41a2-bf22-4a095d972aae/Providers/Microsoft.Compute/Locations/westeurope/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20190314"
+                    }
+                },
+                "diskSizeGB": 127,
+                "diskIOPSReadWrite": 500,
+                "diskMBpsReadWrite": 100
+            }
+        },
+        {
+            "type": "Microsoft.Compute/disks",
+            "apiVersion": "2018-06-01",
+            "name": "[parameters('disks_TestUbuntutestrg4_disk1_5ede8e9db6644b9d8927c1767d7f3824_name')]",
+            "location": "westeurope",
+            "sku": {
+                "name": "Premium_LRS",
+                "tier": "Premium"
+            },
+            "properties": {
+                "osType": "Linux",
+                "creationData": {
+                    "createOption": "FromImage",
+                    "imageReference": {
+                        "id": "/Subscriptions/655737a7-e4fa-4f19-8c60-194cc7a2ca11/Providers/Microsoft.Compute/Locations/westeurope/Publishers/canonical/ArtifactTypes/VMImage/Offers/ubuntuserver/Skus/18.04-LTS/Versions/18.04.201904170"
+                    }
+                },
+                "diskSizeGB": 30,
+                "diskIOPSReadWrite": 120,
+                "diskMBpsReadWrite": 25
+            }
+        },
+        {
+            "type": "Microsoft.Network/connections",
+            "apiVersion": "2019-02-01",
+            "name": "[parameters('connections_TestRG4VNGWtoTestRG5VNGW_name')]",
+            "location": "westeurope",
+            "properties": {
+                "resourceGuid": "7717ddaf-1de5-4a5d-b059-832c87f35c70",
+                "virtualNetworkGateway1": {
+                    "location": "[parameters('connections_TestRG4VNGWtoTestRG5VNGW_location')]",
+                    "properties": {}
+                },
+                "localNetworkGateway2": {
+                    "location": "[parameters('connections_TestRG4VNGWtoTestRG5VNGW_location_1')]",
+                    "properties": {}
+                },
+                "connectionType": "IPsec",
+                "connectionProtocol": "IKEv2",
+                "routingWeight": 0,
+                "enableBgp": false,
+                "usePolicyBasedTrafficSelectors": false,
+                "ipsecPolicies": [],
+                "expressRouteGatewayBypass": false
+            }
+        },
+        {
+            "type": "Microsoft.Network/localNetworkGateways",
+            "apiVersion": "2019-02-01",
+            "name": "[parameters('localNetworkGateways_TestRG5LNGW_name')]",
+            "location": "westeurope",
+            "properties": {
+                "resourceGuid": "3c199b54-cb69-43ee-a134-b1bd15efdd35",
+                "localNetworkAddressSpace": {
+                    "addressPrefixes": [
+                        "10.6.0.0/16"
+                    ]
+                },
+                "gatewayIpAddress": "40.68.75.74"
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "apiVersion": "2019-02-01",
+            "name": "[parameters('networkSecurityGroups_TestRG4NSG_name')]",
+            "location": "westeurope",
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "6b6be0d1-8bb3-4e6b-a5a0-f30129e11375",
+                "securityRules": [
+                    {
+                        "name": "pcoip4172",
+                        "etag": "W/\"15647f62-ccf6-4a9e-a286-2961a804108d\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "4172",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 110,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "pcoip80",
+                        "etag": "W/\"15647f62-ccf6-4a9e-a286-2961a804108d\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "80",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 120,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "pcoip60443",
+                        "etag": "W/\"15647f62-ccf6-4a9e-a286-2961a804108d\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "60443",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 130,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "rdp3389",
+                        "etag": "W/\"15647f62-ccf6-4a9e-a286-2961a804108d\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "3389",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 140,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "default-allow-ssh",
+                        "etag": "W/\"15647f62-ccf6-4a9e-a286-2961a804108d\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "22",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 1000,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Allblock",
+                        "etag": "W/\"15647f62-ccf6-4a9e-a286-2961a804108d\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "13.81.119.163",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": 120,
+                            "direction": "Outbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "pcoip443",
+                        "etag": "W/\"15647f62-ccf6-4a9e-a286-2961a804108d\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "443",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 105,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    }
+                ],
+                "defaultSecurityRules": [
+                    {
+                        "name": "AllowVnetInBound",
+                        "etag": "W/\"15647f62-ccf6-4a9e-a286-2961a804108d\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow inbound traffic from all VMs in VNET",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "VirtualNetwork",
+                            "destinationAddressPrefix": "VirtualNetwork",
+                            "access": "Allow",
+                            "priority": 65000,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowAzureLoadBalancerInBound",
+                        "etag": "W/\"15647f62-ccf6-4a9e-a286-2961a804108d\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow inbound traffic from azure load balancer",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "AzureLoadBalancer",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 65001,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "DenyAllInBound",
+                        "etag": "W/\"15647f62-ccf6-4a9e-a286-2961a804108d\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Deny all inbound traffic",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": 65500,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowVnetOutBound",
+                        "etag": "W/\"15647f62-ccf6-4a9e-a286-2961a804108d\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow outbound traffic from all VMs to all VMs in VNET",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "VirtualNetwork",
+                            "destinationAddressPrefix": "VirtualNetwork",
+                            "access": "Allow",
+                            "priority": 65000,
+                            "direction": "Outbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowInternetOutBound",
+                        "etag": "W/\"15647f62-ccf6-4a9e-a286-2961a804108d\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow outbound traffic from all VMs to Internet",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "Internet",
+                            "access": "Allow",
+                            "priority": 65001,
+                            "direction": "Outbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "DenyAllOutBound",
+                        "etag": "W/\"15647f62-ccf6-4a9e-a286-2961a804108d\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Deny all outbound traffic",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": 65500,
+                            "direction": "Outbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2019-02-01",
+            "name": "[parameters('publicIPAddresses_TestCEntos_ip_name')]",
+            "location": "westeurope",
+            "sku": {
+                "name": "Basic",
+                "tier": "Regional"
+            },
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "92174505-3f5e-4783-b967-9c3c1179f376",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "ipTags": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2019-02-01",
+            "name": "[parameters('publicIPAddresses_TestRG4ADMIN_RW_ip_name')]",
+            "location": "westeurope",
+            "sku": {
+                "name": "Basic",
+                "tier": "Regional"
+            },
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "5c5a681c-3c6d-44de-b5ef-2a884d651240",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "ipTags": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2019-02-01",
+            "name": "[parameters('publicIPAddresses_TestRG4CentOSLicenseServer_ip_name')]",
+            "location": "westeurope",
+            "sku": {
+                "name": "Basic",
+                "tier": "Regional"
+            },
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "aa94cf83-a413-4d88-8f57-a6ae24b0538b",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "ipTags": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2019-02-01",
+            "name": "[parameters('publicIPAddresses_TestRG4CentOSofflinelicenseseerver_ip_name')]",
+            "location": "westeurope",
+            "sku": {
+                "name": "Basic",
+                "tier": "Regional"
+            },
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "81c34564-f4e0-4ef2-b3a0-456c5f8dc4f3",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "ipTags": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2019-02-01",
+            "name": "[parameters('publicIPAddresses_TestRG4PCOIPWAG_ip_name')]",
+            "location": "westeurope",
+            "sku": {
+                "name": "Basic",
+                "tier": "Regional"
+            },
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "0ab166c6-f334-4c24-8480-02cccf96a252",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "ipTags": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2019-02-01",
+            "name": "[parameters('publicIPAddresses_TestRG4UbuntuCAC_ip_name')]",
+            "location": "westeurope",
+            "sku": {
+                "name": "Basic",
+                "tier": "Regional"
+            },
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "3061d984-01d9-49f7-a7c0-467f513f5301",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "ipTags": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2019-02-01",
+            "name": "[parameters('publicIPAddresses_TestRG4VNGWIP_name')]",
+            "location": "westeurope",
+            "sku": {
+                "name": "Basic",
+                "tier": "Regional"
+            },
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "cd319c49-dc74-4931-9af0-f7b07402560a",
+                "ipAddress": "13.93.24.93",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "ipTags": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2019-02-01",
+            "name": "[parameters('publicIPAddresses_TestUbuntutestrg4_ip_name')]",
+            "location": "westeurope",
+            "sku": {
+                "name": "Basic",
+                "tier": "Regional"
+            },
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "fcf2ab03-a173-463a-9982-9261920238c9",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "ipTags": []
+            }
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-04-01",
+            "name": "[parameters('storageAccounts_testrg4diag511_name')]",
+            "location": "westeurope",
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "kind": "Storage",
+            "properties": {
+                "networkAcls": {
+                    "bypass": "AzureServices",
+                    "virtualNetworkRules": [],
+                    "ipRules": [],
+                    "defaultAction": "Allow"
+                },
+                "supportsHttpsTrafficOnly": false,
+                "encryption": {
+                    "services": {
+                        "file": {
+                            "enabled": true
+                        },
+                        "blob": {
+                            "enabled": true
+                        }
+                    },
+                    "keySource": "Microsoft.Storage"
+                }
+            }
+        },
+        {
+            "type": "microsoft.devtestlab/schedules",
+            "apiVersion": "2016-05-15",
+            "name": "[parameters('schedules_shutdown_computevm_testrg4ubuntucac_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_TestRG4UbuntuCAC_name'))]"
+            ],
+            "properties": {
+                "status": "Enabled",
+                "taskType": "ComputeVmShutdownTask",
+                "dailyRecurrence": {
+                    "time": "1900"
+                },
+                "timeZoneId": "India Standard Time",
+                "notificationSettings": {
+                    "status": "Disabled",
+                    "timeInMinutes": 30
+                },
+                "targetResourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_TestRG4UbuntuCAC_name'))]",
+                "provisioningState": "Succeeded",
+                "uniqueIdentifier": "f1b6e1b5-4d35-48b9-a23a-18750181852d"
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2019-02-01",
+            "name": "[parameters('networkInterfaces_testrg4centosoffline139_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_TestRG4VNet_name'), 'subnet-workstations')]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "5638496d-faa9-4e3a-aa72-30edd28b4317",
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "etag": "W/\"dcaee5cf-cb3a-45fc-80bd-b13673e5fb69\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.2.240.7",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_TestRG4VNet_name'), 'subnet-workstations')]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": [],
+                    "appliedDnsServers": []
+                },
+                "macAddress": "00-0D-3A-22-51-A0",
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "primary": true,
+                "tapConfigurations": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2019-02-01",
+            "name": "[concat(parameters('networkSecurityGroups_TestRG4NSG_name'), '/Allblock')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_TestRG4NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "*",
+                "sourceAddressPrefix": "13.81.119.163",
+                "destinationAddressPrefix": "*",
+                "access": "Deny",
+                "priority": 120,
+                "direction": "Outbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2019-02-01",
+            "name": "[concat(parameters('networkSecurityGroups_TestRG4NSG_name'), '/default-allow-ssh')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_TestRG4NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "TCP",
+                "sourcePortRange": "*",
+                "destinationPortRange": "22",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 1000,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2019-02-01",
+            "name": "[concat(parameters('networkSecurityGroups_TestRG4NSG_name'), '/pcoip4172')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_TestRG4NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "4172",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 110,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2019-02-01",
+            "name": "[concat(parameters('networkSecurityGroups_TestRG4NSG_name'), '/pcoip443')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_TestRG4NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "TCP",
+                "sourcePortRange": "*",
+                "destinationPortRange": "443",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 105,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2019-02-01",
+            "name": "[concat(parameters('networkSecurityGroups_TestRG4NSG_name'), '/pcoip60443')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_TestRG4NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "TCP",
+                "sourcePortRange": "*",
+                "destinationPortRange": "60443",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 130,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2019-02-01",
+            "name": "[concat(parameters('networkSecurityGroups_TestRG4NSG_name'), '/pcoip80')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_TestRG4NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "TCP",
+                "sourcePortRange": "*",
+                "destinationPortRange": "80",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 120,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2019-02-01",
+            "name": "[concat(parameters('networkSecurityGroups_TestRG4NSG_name'), '/rdp3389')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_TestRG4NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "TCP",
+                "sourcePortRange": "*",
+                "destinationPortRange": "3389",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 140,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks",
+            "apiVersion": "2019-02-01",
+            "name": "[parameters('virtualNetworks_TestRG4VNet_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_TestRG4NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "6ccfd6bb-0e08-4073-9f3b-9c2583d2554a",
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "10.2.0.0/16"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "subnet-connector",
+                        "etag": "W/\"cc637f7b-a0a3-41b6-8ff3-6419cbbd2f04\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.2.0.128/26",
+                            "networkSecurityGroup": {
+                                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_TestRG4NSG_name'))]"
+                            },
+                            "serviceEndpoints": [],
+                            "delegations": []
+                        }
+                    },
+                    {
+                        "name": "subnet-workstations",
+                        "etag": "W/\"cc637f7b-a0a3-41b6-8ff3-6419cbbd2f04\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.2.240.0/20",
+                            "networkSecurityGroup": {
+                                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_TestRG4NSG_name'))]"
+                            },
+                            "serviceEndpoints": [],
+                            "delegations": []
+                        }
+                    },
+                    {
+                        "name": "GatewaySubnet",
+                        "etag": "W/\"cc637f7b-a0a3-41b6-8ff3-6419cbbd2f04\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.2.0.64/26",
+                            "serviceEndpoints": [],
+                            "delegations": []
+                        }
+                    }
+                ],
+                "virtualNetworkPeerings": [],
+                "enableDdosProtection": false,
+                "enableVmProtection": false
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "apiVersion": "2019-02-01",
+            "name": "[concat(parameters('virtualNetworks_TestRG4VNet_name'), '/GatewaySubnet')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_TestRG4VNet_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "10.2.0.64/26",
+                "serviceEndpoints": [],
+                "delegations": []
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2018-10-01",
+            "name": "[parameters('virtualMachines_TestRG4CentOSLicenseServer_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_testrg4centoslicense154_name'))]",
+                "[resourceId('Microsoft.Storage/StorageAccounts', parameters('storageAccounts_testrg4diag511_name'))]"
+            ],
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_D2s_v3"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "OpenLogic",
+                        "offer": "CentOS",
+                        "sku": "7.5",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "osType": "Linux",
+                        "name": "[concat(parameters('virtualMachines_TestRG4CentOSLicenseServer_name'), '_OsDisk_1_1543e627ff69401fb6fbd27707578c63')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_TestRG4CentOSLicenseServer_name'), '_OsDisk_1_1543e627ff69401fb6fbd27707578c63'))]"
+                        }
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_TestRG4CentOSLicenseServer_name')]",
+                    "adminUsername": "primesoftadmin",
+                    "linuxConfiguration": {
+                        "disablePasswordAuthentication": false,
+                        "provisionVMAgent": true
+                    },
+                    "secrets": [],
+                    "allowExtensionOperations": true
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_testrg4centoslicense154_name'))]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[concat('https://', parameters('storageAccounts_testrg4diag511_name'), '.blob.core.windows.net/')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2018-10-01",
+            "name": "[parameters('virtualMachines_TestRG4CentOSofflinelicenseseerver_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_testrg4centosoffline139_name'))]",
+                "[resourceId('Microsoft.Storage/StorageAccounts', parameters('storageAccounts_testrg4diag511_name'))]"
+            ],
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_D2s_v3"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "OpenLogic",
+                        "offer": "CentOS",
+                        "sku": "7.5",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "osType": "Linux",
+                        "name": "[concat(parameters('virtualMachines_TestRG4CentOSofflinelicenseseerver_name'), '_OsDisk_1_d3a01fd544fa4205ab994f95f6c567da')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_TestRG4CentOSofflinelicenseseerver_name'), '_OsDisk_1_d3a01fd544fa4205ab994f95f6c567da'))]"
+                        }
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_TestRG4CentOSofflinelicenseseerver_name')]",
+                    "adminUsername": "Primesoftadmin",
+                    "linuxConfiguration": {
+                        "disablePasswordAuthentication": false,
+                        "provisionVMAgent": true
+                    },
+                    "secrets": [],
+                    "allowExtensionOperations": true
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_testrg4centosoffline139_name'))]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[concat('https://', parameters('storageAccounts_testrg4diag511_name'), '.blob.core.windows.net/')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2018-10-01",
+            "name": "[parameters('virtualMachines_TestRG4PCOIPWAG_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_testrg4pcoipwag858_name'))]",
+                "[resourceId('Microsoft.Storage/StorageAccounts', parameters('storageAccounts_testrg4diag511_name'))]"
+            ],
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_DS2_v2"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "MicrosoftWindowsServer",
+                        "offer": "WindowsServer",
+                        "sku": "2016-Datacenter",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "osType": "Windows",
+                        "name": "[concat(parameters('virtualMachines_TestRG4PCOIPWAG_name'), '_OsDisk_1_207a3561e98b48c78c410685a4fae0c2')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_TestRG4PCOIPWAG_name'), '_OsDisk_1_207a3561e98b48c78c410685a4fae0c2'))]"
+                        }
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_TestRG4PCOIPWAG_name')]",
+                    "adminUsername": "primesoftadmin",
+                    "windowsConfiguration": {
+                        "provisionVMAgent": true,
+                        "enableAutomaticUpdates": true
+                    },
+                    "secrets": [],
+                    "allowExtensionOperations": true
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_testrg4pcoipwag858_name'))]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[concat('https://', parameters('storageAccounts_testrg4diag511_name'), '.blob.core.windows.net/')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2018-10-01",
+            "name": "[parameters('virtualMachines_TestRG4UbuntuCAC_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_testrg4ubuntucac307_name'))]",
+                "[resourceId('Microsoft.Storage/StorageAccounts', parameters('storageAccounts_testrg4diag511_name'))]"
+            ],
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_DS2_v2"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "Canonical",
+                        "offer": "UbuntuServer",
+                        "sku": "18.04-LTS",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "osType": "Linux",
+                        "name": "[concat(parameters('virtualMachines_TestRG4UbuntuCAC_name'), '_OsDisk_1_1e8e74e8903647308f498aa5cc450553')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_TestRG4UbuntuCAC_name'), '_OsDisk_1_1e8e74e8903647308f498aa5cc450553'))]"
+                        }
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_TestRG4UbuntuCAC_name')]",
+                    "adminUsername": "primesoftadmin",
+                    "linuxConfiguration": {
+                        "disablePasswordAuthentication": false,
+                        "provisionVMAgent": true
+                    },
+                    "secrets": [],
+                    "allowExtensionOperations": true
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_testrg4ubuntucac307_name'))]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[concat('https://', parameters('storageAccounts_testrg4diag511_name'), '.blob.core.windows.net/')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2019-02-01",
+            "name": "[parameters('networkInterfaces_testcentos870_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_TestCEntos_ip_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_TestRG4VNet_name'), 'subnet-workstations')]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "bdaacda6-0044-4615-aeef-57ce732ec182",
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "etag": "W/\"314ff17e-2b2e-4d14-9762-87e28891dfa2\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.2.240.8",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_TestCEntos_ip_name'))]"
+                            },
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_TestRG4VNet_name'), 'subnet-workstations')]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": [],
+                    "appliedDnsServers": []
+                },
+                "macAddress": "00-0D-3A-3A-49-C7",
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "tapConfigurations": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2019-02-01",
+            "name": "[parameters('networkInterfaces_testrg4admin_rw970_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_TestRG4ADMIN_RW_ip_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_TestRG4VNet_name'), 'subnet-workstations')]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "ba6e6c3f-6c8d-42e9-97cc-5432d4f8eeac",
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "etag": "W/\"97d45d4a-eb88-4eae-b412-5cdec6ef0ff5\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.2.240.4",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_TestRG4ADMIN_RW_ip_name'))]"
+                            },
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_TestRG4VNet_name'), 'subnet-workstations')]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": [],
+                    "appliedDnsServers": []
+                },
+                "macAddress": "00-0D-3A-2F-DC-DD",
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "tapConfigurations": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2019-02-01",
+            "name": "[parameters('networkInterfaces_testrg4centoslicense154_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_TestRG4CentOSLicenseServer_ip_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_TestRG4VNet_name'), 'subnet-workstations')]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "63c82be1-aad8-4fe0-a895-aa959e6f5444",
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "etag": "W/\"e3bc2d75-70bf-4813-bf27-4efa1343d5a3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.2.240.5",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_TestRG4CentOSLicenseServer_ip_name'))]"
+                            },
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_TestRG4VNet_name'), 'subnet-workstations')]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": [],
+                    "appliedDnsServers": []
+                },
+                "macAddress": "00-0D-3A-26-1A-FB",
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "primary": true,
+                "tapConfigurations": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2019-02-01",
+            "name": "[parameters('networkInterfaces_testrg4pcoipwag858_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_TestRG4PCOIPWAG_ip_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_TestRG4VNet_name'), 'subnet-workstations')]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "7524842c-9189-495e-9317-e163422dd042",
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "etag": "W/\"c1833aec-c7d0-4552-b473-18a891939b63\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.2.240.6",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_TestRG4PCOIPWAG_ip_name'))]"
+                            },
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_TestRG4VNet_name'), 'subnet-workstations')]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": [],
+                    "appliedDnsServers": []
+                },
+                "macAddress": "00-0D-3A-38-D5-4E",
+                "enableAcceleratedNetworking": true,
+                "enableIPForwarding": false,
+                "primary": true,
+                "tapConfigurations": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2019-02-01",
+            "name": "[parameters('networkInterfaces_testrg4ubuntucac307_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_TestRG4UbuntuCAC_ip_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_TestRG4VNet_name'), 'subnet-connector')]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "c7656b00-bf02-4584-b3ce-ea4345c34c45",
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "etag": "W/\"9a41489b-d3b9-465b-b86f-682c0704a6f7\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.2.0.132",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_TestRG4UbuntuCAC_ip_name'))]"
+                            },
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_TestRG4VNet_name'), 'subnet-connector')]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": [],
+                    "appliedDnsServers": []
+                },
+                "macAddress": "00-0D-3A-25-CD-17",
+                "enableAcceleratedNetworking": true,
+                "enableIPForwarding": false,
+                "primary": true,
+                "tapConfigurations": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2019-02-01",
+            "name": "[parameters('networkInterfaces_testubuntutestrg4142_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_TestUbuntutestrg4_ip_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_TestRG4VNet_name'), 'subnet-workstations')]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "95b99228-1ed2-4106-9b31-16fbd137ebb9",
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "etag": "W/\"e0913512-9456-4e6d-97de-623efd7e927e\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.2.240.9",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_TestUbuntutestrg4_ip_name'))]"
+                            },
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_TestRG4VNet_name'), 'subnet-workstations')]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": [],
+                    "appliedDnsServers": []
+                },
+                "macAddress": "00-0D-3A-25-B1-E0",
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "tapConfigurations": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworkGateways",
+            "apiVersion": "2019-02-01",
+            "name": "[parameters('virtualNetworkGateways_TestRG4VNGW_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_TestRG4VNGWIP_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_TestRG4VNet_name'), 'GatewaySubnet')]"
+            ],
+            "properties": {
+                "resourceGuid": "7c34b4b0-78db-4d10-b2ff-3c34cdf58331",
+                "ipConfigurations": [
+                    {
+                        "name": "default",
+                        "etag": "W/\"af691cee-e77c-49c7-846d-3f969a2f4557\"",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_TestRG4VNGWIP_name'))]"
+                            },
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_TestRG4VNet_name'), 'GatewaySubnet')]"
+                            }
+                        }
+                    }
+                ],
+                "sku": {
+                    "name": "VpnGw1",
+                    "tier": "VpnGw1",
+                    "capacity": 2
+                },
+                "gatewayType": "Vpn",
+                "vpnType": "RouteBased",
+                "enableBgp": false,
+                "activeActive": false,
+                "vpnClientConfiguration": {
+                    "vpnClientProtocols": [
+                        "SSTP",
+                        "IkeV2"
+                    ],
+                    "vpnClientRootCertificates": [],
+                    "vpnClientRevokedCertificates": [],
+                    "vpnClientIpsecPolicies": []
+                },
+                "bgpSettings": {
+                    "asn": 65515,
+                    "bgpPeeringAddress": "10.2.0.126",
+                    "peerWeight": 0
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "apiVersion": "2019-02-01",
+            "name": "[concat(parameters('virtualNetworks_TestRG4VNet_name'), '/subnet-connector')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_TestRG4VNet_name'))]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_TestRG4NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "10.2.0.128/26",
+                "networkSecurityGroup": {
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_TestRG4NSG_name'))]"
+                },
+                "serviceEndpoints": [],
+                "delegations": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "apiVersion": "2019-02-01",
+            "name": "[concat(parameters('virtualNetworks_TestRG4VNet_name'), '/subnet-workstations')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_TestRG4VNet_name'))]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_TestRG4NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "10.2.240.0/20",
+                "networkSecurityGroup": {
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_TestRG4NSG_name'))]"
+                },
+                "serviceEndpoints": [],
+                "delegations": []
+            }
+        }
+    ]
+}

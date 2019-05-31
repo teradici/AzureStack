@@ -1,0 +1,99 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "connections_TestRG4VNGWtoTestRG5VNGW_location": {
+            "value": null
+        },
+        "connections_TestRG4VNGWtoTestRG5VNGW_location_1": {
+            "value": null
+        },
+        "virtualNetworks_TestRG4VNet_name": {
+            "value": null
+        },
+        "storageAccounts_testrg4diag511_name": {
+            "value": null
+        },
+        "virtualMachines_TestRG4PCOIPWAG_name": {
+            "value": null
+        },
+        "networkInterfaces_testcentos870_name": {
+            "value": null
+        },
+        "publicIPAddresses_TestCEntos_ip_name": {
+            "value": null
+        },
+        "publicIPAddresses_TestRG4VNGWIP_name": {
+            "value": null
+        },
+        "virtualMachines_TestRG4UbuntuCAC_name": {
+            "value": null
+        },
+        "localNetworkGateways_TestRG5LNGW_name": {
+            "value": null
+        },
+        "networkSecurityGroups_TestRG4NSG_name": {
+            "value": null
+        },
+        "virtualNetworkGateways_TestRG4VNGW_name": {
+            "value": null
+        },
+        "connections_TestRG4VNGWtoTestRG5VNGW_name": {
+            "value": null
+        },
+        "networkInterfaces_testrg4admin_rw970_name": {
+            "value": null
+        },
+        "networkInterfaces_testrg4pcoipwag858_name": {
+            "value": null
+        },
+        "publicIPAddresses_TestRG4ADMIN_RW_ip_name": {
+            "value": null
+        },
+        "publicIPAddresses_TestRG4PCOIPWAG_ip_name": {
+            "value": null
+        },
+        "networkInterfaces_testrg4ubuntucac307_name": {
+            "value": null
+        },
+        "publicIPAddresses_TestRG4UbuntuCAC_ip_name": {
+            "value": null
+        },
+        "networkInterfaces_testubuntutestrg4142_name": {
+            "value": null
+        },
+        "publicIPAddresses_TestUbuntutestrg4_ip_name": {
+            "value": null
+        },
+        "networkInterfaces_testrg4centoslicense154_name": {
+            "value": null
+        },
+        "networkInterfaces_testrg4centosoffline139_name": {
+            "value": null
+        },
+        "virtualMachines_TestRG4CentOSLicenseServer_name": {
+            "value": null
+        },
+        "publicIPAddresses_TestRG4CentOSLicenseServer_ip_name": {
+            "value": null
+        },
+        "schedules_shutdown_computevm_testrg4ubuntucac_name": {
+            "value": null
+        },
+        "virtualMachines_TestRG4CentOSofflinelicenseseerver_name": {
+            "value": null
+        },
+        "publicIPAddresses_TestRG4CentOSofflinelicenseseerver_ip_name": {
+            "value": null
+        },
+        "disks_TestCEntos_OsDisk_1_9bee551d279a404eadccd49d383e4974_name": {
+            "value": null
+        },
+        "disks_TestUbuntutestrg4_disk1_5ede8e9db6644b9d8927c1767d7f3824_name": {
+            "value": null
+        },
+        "disks_TestRG4ADMIN_RW_OsDisk_1_a29f8ed7ac384c2a805df8ecf322d7dd_name": {
+            "value": null
+        }
+    }
+}

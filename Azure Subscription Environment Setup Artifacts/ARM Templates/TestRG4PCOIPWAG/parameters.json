@@ -1,0 +1,15 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachines_TestRG4PCOIPWAG_name": {
+            "value": null
+        },
+        "disks_TestRG4PCOIPWAG_OsDisk_1_207a3561e98b48c78c410685a4fae0c2_externalid": {
+            "value": null
+        },
+        "networkInterfaces_testrg4pcoipwag858_externalid": {
+            "value": null
+        }
+    }
+}

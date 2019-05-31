@@ -1,0 +1,15 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachines_TestRG4CentOSLicenseServer_name": {
+            "value": null
+        },
+        "disks_TestRG4CentOSLicenseServer_OsDisk_1_1543e627ff69401fb6fbd27707578c63_externalid": {
+            "value": null
+        },
+        "networkInterfaces_testrg4centoslicense154_externalid": {
+            "value": null
+        }
+    }
+}

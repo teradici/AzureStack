@@ -1,0 +1,73 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachines_TestRG4UbuntuCAC_name": {
+            "defaultValue": "TestRG4UbuntuCAC",
+            "type": "String"
+        },
+        "disks_TestRG4UbuntuCAC_OsDisk_1_1e8e74e8903647308f498aa5cc450553_externalid": {
+            "defaultValue": "/subscriptions/523a0eda-0b3e-41a2-bf22-4a095d972aae/resourceGroups/TESTRG4/providers/Microsoft.Compute/disks/TestRG4UbuntuCAC_OsDisk_1_1e8e74e8903647308f498aa5cc450553",
+            "type": "String"
+        },
+        "networkInterfaces_testrg4ubuntucac307_externalid": {
+            "defaultValue": "/subscriptions/523a0eda-0b3e-41a2-bf22-4a095d972aae/resourceGroups/TestRG4/providers/Microsoft.Network/networkInterfaces/testrg4ubuntucac307",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2018-10-01",
+            "name": "[parameters('virtualMachines_TestRG4UbuntuCAC_name')]",
+            "location": "westeurope",
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_DS2_v2"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "Canonical",
+                        "offer": "UbuntuServer",
+                        "sku": "18.04-LTS",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "osType": "Linux",
+                        "name": "[concat(parameters('virtualMachines_TestRG4UbuntuCAC_name'), '_OsDisk_1_1e8e74e8903647308f498aa5cc450553')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                            "id": "[parameters('disks_TestRG4UbuntuCAC_OsDisk_1_1e8e74e8903647308f498aa5cc450553_externalid')]"
+                        }
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_TestRG4UbuntuCAC_name')]",
+                    "adminUsername": "primesoftadmin",
+                    "linuxConfiguration": {
+                        "disablePasswordAuthentication": false,
+                        "provisionVMAgent": true
+                    },
+                    "secrets": [],
+                    "allowExtensionOperations": true
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[parameters('networkInterfaces_testrg4ubuntucac307_externalid')]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "https://testrg4diag511.blob.core.windows.net/"
+                    }
+                }
+            }
+        }
+    ]
+}

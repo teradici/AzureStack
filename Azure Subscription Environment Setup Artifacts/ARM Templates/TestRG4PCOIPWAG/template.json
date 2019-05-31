@@ -1,0 +1,73 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachines_TestRG4PCOIPWAG_name": {
+            "defaultValue": "TestRG4PCOIPWAG",
+            "type": "String"
+        },
+        "disks_TestRG4PCOIPWAG_OsDisk_1_207a3561e98b48c78c410685a4fae0c2_externalid": {
+            "defaultValue": "/subscriptions/523a0eda-0b3e-41a2-bf22-4a095d972aae/resourceGroups/TESTRG4/providers/Microsoft.Compute/disks/TestRG4PCOIPWAG_OsDisk_1_207a3561e98b48c78c410685a4fae0c2",
+            "type": "String"
+        },
+        "networkInterfaces_testrg4pcoipwag858_externalid": {
+            "defaultValue": "/subscriptions/523a0eda-0b3e-41a2-bf22-4a095d972aae/resourceGroups/TestRG4/providers/Microsoft.Network/networkInterfaces/testrg4pcoipwag858",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2018-10-01",
+            "name": "[parameters('virtualMachines_TestRG4PCOIPWAG_name')]",
+            "location": "westeurope",
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_DS2_v2"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "MicrosoftWindowsServer",
+                        "offer": "WindowsServer",
+                        "sku": "2016-Datacenter",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "osType": "Windows",
+                        "name": "[concat(parameters('virtualMachines_TestRG4PCOIPWAG_name'), '_OsDisk_1_207a3561e98b48c78c410685a4fae0c2')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                            "id": "[parameters('disks_TestRG4PCOIPWAG_OsDisk_1_207a3561e98b48c78c410685a4fae0c2_externalid')]"
+                        }
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_TestRG4PCOIPWAG_name')]",
+                    "adminUsername": "primesoftadmin",
+                    "windowsConfiguration": {
+                        "provisionVMAgent": true,
+                        "enableAutomaticUpdates": true
+                    },
+                    "secrets": [],
+                    "allowExtensionOperations": true
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[parameters('networkInterfaces_testrg4pcoipwag858_externalid')]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "https://testrg4diag511.blob.core.windows.net/"
+                    }
+                }
+            }
+        }
+    ]
+}

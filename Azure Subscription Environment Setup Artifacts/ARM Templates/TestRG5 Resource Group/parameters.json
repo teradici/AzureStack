@@ -1,0 +1,60 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "connections_TestRG5VNGWtoTestRG4VNGW_location": {
+            "value": null
+        },
+        "connections_TestRG5VNGWtoTestRG4VNGW_location_1": {
+            "value": null
+        },
+        "virtualNetworks_TestRG5VNet_name": {
+            "value": null
+        },
+        "virtualMachines_TestRG5WinDC_name": {
+            "value": null
+        },
+        "storageAccounts_testrg5diag135_name": {
+            "value": null
+        },
+        "publicIPAddresses_TestRG5VNGWIP_name": {
+            "value": null
+        },
+        "localNetworkGateways_TestRG4LNGW_name": {
+            "value": null
+        },
+        "networkInterfaces_testrg5windc22_name": {
+            "value": null
+        },
+        "networkSecurityGroups_TestRG5NSG_name": {
+            "value": null
+        },
+        "networkInterfaces_testrg5windc799_name": {
+            "value": null
+        },
+        "publicIPAddresses_TestRG5WinDC_ip_name": {
+            "value": null
+        },
+        "virtualNetworkGateways_TestRG5VNGW_name": {
+            "value": null
+        },
+        "networkInterfaces_testrg5admin_rw40_name": {
+            "value": null
+        },
+        "publicIPAddresses_TestRG5WinDCip196_name": {
+            "value": null
+        },
+        "connections_TestRG5VNGWtoTestRG4VNGW_name": {
+            "value": null
+        },
+        "publicIPAddresses_TestRG5ADMIN_RW_ip_name": {
+            "value": null
+        },
+        "disks_TestRG5WinDC_OsDisk_1_b5b3c14837d248a7a269ec3f7e50cf2c_name": {
+            "value": null
+        },
+        "disks_TestRG5ADMIN_RW_OsDisk_1_dac0bd43af62452eb79a13c2a60535d3_name": {
+            "value": null
+        }
+    }
+}
