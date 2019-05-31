@@ -1,0 +1,57 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "connections_AZRG5toAZRG6_location": {
+            "value": null
+        },
+        "connections_AZRG5toAZRG6_location_1": {
+            "value": null
+        },
+        "connections_AZRG5toAZRG6_name": {
+            "value": null
+        },
+        "virtualNetworks_AZRG5VNet_name": {
+            "value": null
+        },
+        "storageAccounts_azrg5diag_name": {
+            "value": null
+        },
+        "virtualMachines_AZRG5DomainC_name": {
+            "value": null
+        },
+        "vaults_CAM_UvlmnEyaDrOINAYT_name": {
+            "value": null
+        },
+        "localNetworkGateways_AZRG5LNGW_name": {
+            "value": null
+        },
+        "networkSecurityGroups_AZRG5NSG_name": {
+            "value": null
+        },
+        "publicIPAddresses_AZRG5VNGWPIP_name": {
+            "value": null
+        },
+        "networkInterfaces_azrg5windc876_name": {
+            "value": null
+        },
+        "publicIPAddresses_AZRG5WinDC_ip_name": {
+            "value": null
+        },
+        "networkInterfaces_azrg5domainc53_name": {
+            "value": null
+        },
+        "virtualNetworkGateways_AZRG5VNGW_name": {
+            "value": null
+        },
+        "publicIPAddresses_AZRG5DomainC_ip_name": {
+            "value": null
+        },
+        "storageAccounts_cam0pjsicxlzytqdhrnv_name": {
+            "value": null
+        },
+        "disks_AZRG5WinDC_OsDisk_1_2fa0646ff95d435eb9e534393c1fbec2_name": {
+            "value": null
+        }
+    }
+}

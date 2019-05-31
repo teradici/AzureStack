@@ -1,0 +1,15 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachines_AZRG5DomainC_name": {
+            "value": null
+        },
+        "disks_AZRG5DomainC_OsDisk_1_f510901b22c940bab3c0f6bb3baad3d5_externalid": {
+            "value": null
+        },
+        "networkInterfaces_azrg5domainc53_externalid": {
+            "value": null
+        }
+    }
+}

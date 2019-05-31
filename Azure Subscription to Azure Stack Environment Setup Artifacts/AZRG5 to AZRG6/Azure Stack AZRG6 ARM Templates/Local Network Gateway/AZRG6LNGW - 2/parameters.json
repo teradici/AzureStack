@@ -1,0 +1,20 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "localNetworkGatewayName": {
+            "value": "AZRG6LNGW"
+        },
+        "location": {
+            "value": "westus2"
+        },
+        "gatewayIpAddress": {
+            "value": "104.40.25.56"
+        },
+        "addressPrefixes": {
+            "value": [
+                "10.3.0.0/16"
+            ]
+        }
+    }
+}

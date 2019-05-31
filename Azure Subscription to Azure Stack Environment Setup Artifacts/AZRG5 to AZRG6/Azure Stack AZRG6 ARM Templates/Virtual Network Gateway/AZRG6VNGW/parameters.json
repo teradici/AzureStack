@@ -1,0 +1,27 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "value": "AZRG6VNGW"
+        },
+        "location": {
+            "value": "westus2"
+        },
+        "sku": {
+            "value": "Standard"
+        },
+        "gatewayType": {
+            "value": "Vpn"
+        },
+        "vpnType": {
+            "value": "RouteBased"
+        },
+        "subnetId": {
+            "value": "/subscriptions/57af5f2c-10aa-4169-981b-bee1124b20c5/resourceGroups/AZRG6/providers/Microsoft.Network/virtualNetworks/AZRG6VNet/subnets/GatewaySubnet"
+        },
+        "newPublicIpAddressName": {
+            "value": "AZRG6VNGWPIP"
+        }
+    }
+}

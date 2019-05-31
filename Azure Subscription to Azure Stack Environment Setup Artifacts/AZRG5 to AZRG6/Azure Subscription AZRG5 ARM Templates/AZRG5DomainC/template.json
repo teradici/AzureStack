@@ -1,0 +1,73 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachines_AZRG5DomainC_name": {
+            "defaultValue": "AZRG5DomainC",
+            "type": "String"
+        },
+        "disks_AZRG5DomainC_OsDisk_1_f510901b22c940bab3c0f6bb3baad3d5_externalid": {
+            "defaultValue": "/subscriptions/523a0eda-0b3e-41a2-bf22-4a095d972aae/resourceGroups/AZRG5/providers/Microsoft.Compute/disks/AZRG5DomainC_OsDisk_1_f510901b22c940bab3c0f6bb3baad3d5",
+            "type": "String"
+        },
+        "networkInterfaces_azrg5domainc53_externalid": {
+            "defaultValue": "/subscriptions/523a0eda-0b3e-41a2-bf22-4a095d972aae/resourceGroups/AZRG5/providers/Microsoft.Network/networkInterfaces/azrg5domainc53",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2018-10-01",
+            "name": "[parameters('virtualMachines_AZRG5DomainC_name')]",
+            "location": "westus",
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_DS2_v2"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "MicrosoftWindowsServer",
+                        "offer": "WindowsServer",
+                        "sku": "2016-Datacenter",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "osType": "Windows",
+                        "name": "[concat(parameters('virtualMachines_AZRG5DomainC_name'), '_OsDisk_1_f510901b22c940bab3c0f6bb3baad3d5')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                            "id": "[parameters('disks_AZRG5DomainC_OsDisk_1_f510901b22c940bab3c0f6bb3baad3d5_externalid')]"
+                        }
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_AZRG5DomainC_name')]",
+                    "adminUsername": "primesoftadmin",
+                    "windowsConfiguration": {
+                        "provisionVMAgent": true,
+                        "enableAutomaticUpdates": true
+                    },
+                    "secrets": [],
+                    "allowExtensionOperations": true
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[parameters('networkInterfaces_azrg5domainc53_externalid')]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "https://azrg5diag.blob.core.windows.net/"
+                    }
+                }
+            }
+        }
+    ]
+}
