@@ -1,0 +1,27 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "value": "TestRG9VNet"
+        },
+        "resourceGroup": {
+            "value": "TestRG9"
+        },
+        "location": {
+            "value": "westus2"
+        },
+        "addressPrefix": {
+            "value": "10.2.0.0/16"
+        },
+        "subnetName": {
+            "value": "subnet-connector"
+        },
+        "subnetAddressPrefix": {
+            "value": "10.2.0.128/26"
+        },
+        "enableDdosProtection": {
+            "value": false
+        }
+    }
+}

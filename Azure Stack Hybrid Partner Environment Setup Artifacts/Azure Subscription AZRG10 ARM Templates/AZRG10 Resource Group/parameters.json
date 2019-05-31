@@ -1,0 +1,30 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "connections_AZRG10VNGWtoTestRG9VNGW_location": {
+            "value": null
+        },
+        "connections_AZRG10VNGWtoTestRG9VNGW_location_1": {
+            "value": null
+        },
+        "virtualNetworks_AZRG10VNet_name": {
+            "value": null
+        },
+        "publicIPAddresses_AZRG10VNGW_name": {
+            "value": null
+        },
+        "localNetworkGateways_AZRG10LNGW_name": {
+            "value": null
+        },
+        "networkSecurityGroups_AZRG10NSG_name": {
+            "value": null
+        },
+        "virtualNetworkGateways_AZRG10VNGW_name": {
+            "value": null
+        },
+        "connections_AZRG10VNGWtoTestRG9VNGW_name": {
+            "value": null
+        }
+    }
+}
