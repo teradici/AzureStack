@@ -1,0 +1,45 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "westus2"
+        },
+        "virtualMachineName": {
+            "value": "trg9winag3"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_DS1_v2"
+        },
+        "adminUsername": {
+            "value": "testuser1"
+        },
+        "virtualNetworkName": {
+            "value": "TestRG9VNet"
+        },
+        "networkInterfaceName": {
+            "value": "trg9winag3457"
+        },
+        "adminPassword": {
+            "value": null
+        },
+        "diagnosticsStorageAccountName": {
+            "value": "azrg6diag137"
+        },
+        "diagnosticsStorageAccountId": {
+            "value": "/subscriptions/57af5f2c-10aa-4169-981b-bee1124b20c5/resourcegroups/AZRG6/providers/Microsoft.Storage/storageaccounts/azrg6diag137"
+        },
+        "subnetName": {
+            "value": "subnet-workstations"
+        },
+        "publicIpAddressName": {
+            "value": "trg9winag3-ip"
+        },
+        "publicIpAddressType": {
+            "value": "Dynamic"
+        },
+        "publicIpAddressSku": {
+            "value": "Basic"
+        }
+    }
+}
