@@ -3,9 +3,9 @@ Teradici Azure Stack project was created to serve as a reference for deploying T
 
 
 **Teradici CAS/CAC/CAM Documentation**
-*Reference Architecture 
-*Detail Deployment walk trough
-*Implementation Details(Presentation)
-*Teradici CAS Reference Architecture(Presentation)
-*Frequently Asked Questions
+<ul><a href="https://github.com/teradici/AzureStack/blob/master/Documents/Teradici%20Azure%20Stack%20Architecture%20%26%20Deployment%20V1.0.docx">Reference Architecture</a></ul>
+<ul><a href="https://github.com/teradici/AzureStack/blob/master/Documents/Teradici%20CAS%20Deployment_on%20Azure%20Stack%20_V1.0.docx">Detail Deployment walk trough</a></ul>
+<ul>Implementation Details(Presentation)</ul>
+<ul>Teradici CAS Reference Architecture(Presentation)</ul>
+<ul>Frequently Asked Questions</ul>
 
