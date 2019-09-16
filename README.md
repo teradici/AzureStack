@@ -21,7 +21,7 @@ Teradici Azure Stack project was created to serve as a reference for deploying T
 </ul>
 <br>
 
-**ARM Templates Per Resource Group**
+**ARM Templates by Environment and Resource Group**
 <ul>
   <li> <a href="https://github.com/teradici/AzureStack/tree/master/Azure%20ARM%20Templates/Azure%20Subscription%20AZRG5%20ARM%20Templates">Azure Subscription: AZRG5</a> </li>
   <li> <a href="https://github.com/teradici/AzureStack/tree/master/Azure%20ARM%20Templates/Azure%20Stack%20AZRG6%20ARM%20Templates">Azure Subscription: AZRG6</a></li>
