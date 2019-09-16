@@ -12,3 +12,14 @@ Teradici Azure Stack project was created to serve as a reference for deploying T
 <li><a href="https://github.com/teradici/AzureStack/blob/master/Documents/Teradici%20CAS%20on%20Azure%20Stack%20RefArch.pptx">Teradici CAS Reference Architecture(Presentation)</li>
 <li><a href="https://github.com/teradici/AzureStack/blob/master/Documents/Teradici%20CAS_FAQs_v1.0.docx">Frequently Asked Questions</a></li></ul>
 
+**ARM Templates Per Resource Group**
+<ul>
+  <li>
+    <a href="https://github.com/teradici/AzureStack/tree/master/Azure%20ARM%20Templates/Azure%20Subscription%20AZRG5%20ARM%20Templates">Azure Subscription : AZRG5</a>
+  </li>
+ <li> <a href="https://github.com/teradici/AzureStack/tree/master/Azure%20ARM%20Templates/Azure%20Stack%20AZRG6%20ARM%20Templates">Azure Subscription : AZRG6</a></li>
+<li><a href="https://github.com/teradici/AzureStack/tree/master/Azure%20ARM%20Templates/Azure%20Subscription%20AZRG10%20RG/AZRG10%20Resource%20Group">Azure Subscription : AZRG10 </a></li>
+<li><a href="https://github.com/teradici/AzureStack/tree/master/Azure%20Stack%20ARM%20Templates/Azure%20Stack%20TestRG9%20RG">Azure Stack TestRG9 RG</li> 
+ <li><a href="https://github.com/teradici/AzureStack/tree/master/Azure%20Stack%20ARM%20Templates/Azure%20Test%20RG4-5%20ARM%20templates">Azure Stack Test RG4-5</a></li>
+
+</ul>
